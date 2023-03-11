@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserDetailsController;
+use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\OrdersController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +29,8 @@ Route::get('/user/employee', [UserDetailsController::class, 'employee'])->name('
 Route::get('/user/customer', [UserDetailsController::class, 'customer'])->name('user.customer');
 
 Route::get('/user/admin/employeeView', [UserDetailsController::class, 'showEmployee'])->name('user.showEmployee');
+Route::get('/user/logout', [UserDetailsController::class, 'logout'])->name('user.logout');
+
 
 Route::resource('/user', UserDetailsController::class)->names([
     'create'=> 'user.create',
@@ -37,6 +43,31 @@ Route::resource('/user', UserDetailsController::class)->names([
 
 
 
+Route::get('/user/admin/productView', [ProductsController::class, 'adminProduceView'])->name('user.admin.productView');
+Route::get('/user/customer/productView', [ProductsController::class, 'customerProduceView'])->name('user.customer.productView');
+Route::post('/user/customer/productOrder', [ProductsController::class, 'customerProductOrder'])->name('user.customer.productOrder');
+
+
+
+Route::resource('/user/admin/product', ProductsController::class)->names([
+    'create'=> 'product.create',
+    'store'=> 'product.store',
+    'show'=> 'product.show',
+    'edit'=> 'product.edit',
+    'update'=> 'product.update',
+    'destroy'=> 'product.destroy',
+]);
+
+
+Route::get('/user/employee/orderView', [OrdersController::class, 'employeeOrderView'])->name('user.employee.orderView');
+Route::resource('/user/order', OrdersController::class)->names([
+    'create'=> 'order.create',
+    'store'=> 'order.store',
+    'show'=> 'order.show',
+    'edit'=> 'order.edit',
+    'update'=> 'order.update',
+    'destroy'=> 'order.destroy',
+]);
 
 
 

@@ -8,13 +8,13 @@
             <a class="nav-link d-flex active align-items-center" href="{{ Route('user.admin') }}" >Admin name</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link d-flex align-items-center" href="#!" >Products</a>
+            <a class="nav-link d-flex align-items-center" href="{{ Route('user.admin.productView') }}" >Products</a>
           </li>
           <li class="nav-item">
             <a class="nav-link d-flex align-items-center" href="{{ Route('user.showEmployee') }}" >Employees</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link d-flex align-items-center" href="#!" >Logout</a>
+            <a class="nav-link d-flex align-items-center" href="{{ Route('user.logout') }}" >Logout</a>
           </li>
         </ul>
     </div>

@@ -146,4 +146,8 @@ class UserDetailsController extends Controller
         $response['employees'] = UserDetails::all()->where('role','=','employee');
         return view('users.admin.employeeView')->with($response);
     }
+
+    public function logout(){
+        return redirect()->route('login');
+    }
 }
